@@ -217,42 +217,6 @@
       ]
     },
     {
-      "id": "staff-8",
-      "name": "Dr Alison Torn",
-      "email": "a.torn@leedstrinity.ac.uk",
-      "avatar": "../../assets/staff/alisontorn.jpg",
-      "avatarPosition": "50% 30%",
-      "keywords": [
-        "Student Engagement",
-        "Student Wellbeing",
-        "Student Success",
-        "Blended Learning",
-        "Articificial Intelligence"
-      ],
-      "topics": [
-        {
-          "title": "Student Engagement in Higher Education: Qualitative Insights into Transitions, Wellbeing, Lifeloads, Belonging, and Academic Demands",
-          "description": "Building on previous research conducted by myself and Candice Whitaker, this project explores how and why students engage with their university studies. This will include issues around engagement and disengagement, exploring the intersection between individual and structural factors including, but not limited to, the learning environment, transitions into university, well-being and ‘lifeloads’ outside of university (e.g. work, caring responsibilities). The project will require a strong understanding of qualitative methods (e.g. thematic analysis, IPA, discourse analysis); experience of conducting interviews would be preferable. Training will be given to conduct focus group interviews. This project would suit students interested in the student journey within a university environment and what facilitates or hinders this journey.",
-          "ideas": [
-            "This project explores how students experience and negotiate engagement with their studies alongside paid work, caring responsibilities, commuting, and other external demands (“lifeload”). The project will recruit from different subject areas across the university, utilising focus group interviews as the method of data collection.",
-            "This project examines how students experience key transitions (e.g. first year, post-pandemic learning, commuting to campus, returning to study) and how these shape engagement, belonging, and motivation. The project will recruit from different subject areas across the university, utilising focus group interviews as the method of data collection.",
-            "This project investigates how students experience the relationship between engagement, well-being, and mental health, including moments when engagement becomes overwhelming or unsustainable. The project will recruit from different subject areas across the university, utilising individual interviews as the method of data collection.",
-            "This project explores how students talk about engagement, success, and effort, and how these narratives reflect broader institutional and cultural expectations. The project will recruit from different subject areas across the university, utilising focus group interviews as the method of data collection."
-          ]
-        },
-        {
-          "title": "Exploring Student Experiences of Generative AI in Higher Education: Ethics, Learning Practices, Support, and Employability ",
-          "description": "With Generative Artificial Intelligence (GenAI) becoming embedded in our daily lives, I have a strong interest in how these tools are being used or avoided by the student population, and how universities can support students more to embrace this technology in order to prepare them for the professional world after university. The project will require a strong understanding of qualitative methods (e.g. thematic analysis, discourse analysis); experience of conducting interviews would be preferable. Training will be given to conduct focus group interviews. This project would suit students interested in the use of digital technologies and GenAI.",
-          "ideas": [
-            "This project explores how students understand, use, limit, or avoid GenAI tools in their university work, including uncertainty around boundaries and legitimacy. The project will recruit from different subject areas across the university, utilising focus group interviews as the method of data collection.",
-            "This project examines how students construct ethical boundaries around GenAI use, including ideas of cheating, originality, fairness, and “doing the work yourself.” The project will recruit from different subject areas across the university, utilising focus group interviews as the method of data collection.",
-            "This project explores how students connect GenAI use to employability, professional readiness, and their future working lives beyond university. The project will recruit from different subject areas across the university, utilising focus group interviews as the method of data collection.",
-            "This project investigates how students experience university-level communication, support, and teaching around GenAI, including perceptions of trust, surveillance, and clarity. The project will recruit from different subject areas across the university, utilising focus group interviews as the method of data collection."
-          ]
-        }
-      ]
-    },
-    {
       "id": "staff-9",
       "name": "Dr Candice Whitaker",
       "email": "c.whitaker@leedstrinity.ac.uk",
@@ -426,38 +390,6 @@
       ]
     },
     {
-      "id": "staff-15",
-      "name": "Dr Chris Rowley",
-      "email": "c.rowley@leedstrinity.ac.uk",
-      "avatar": "../../assets/staff/chrisrowley.jpg",
-      "avatarPosition": "50% 30%",
-      "keywords": [
-        "Transitions",
-        "Impression Management",
-        "Workplace Interactions",
-        "Support networks"
-      ],
-      "topics": [
-        {
-          "title": "Exploring the qualities and characteristics of effective support networks amongst dual-career athletes",
-          "description": "This project would look to explore the support networks of dual-career (potentially student-) athletes to help identify the features and characteristics of effective support networks. Through the adoption of psychosocial perspectives, this project will explore the different forms of support that peers and family members/loved ones provide, investigating the athletes' perceptions around the support that is sought and received from significant- and similar-others. This project would hold worthwhile implications for those who seek to support and develop dual-career athletes, accounting for sporting and professional/academic/vocational success and attainment, personal and professional wellbeing, and personal and professional identity.",
-          "ideas": [
-            "This qualitative project would seek to explore the support networks of dual-career (including student) athletes using a creative, participatory approach (i.e. photo-elicitation). Dual-career athletes will share artefacts (i.e. photos or drawings) representing key sources of support in their sporting and professional/academic/vocational lives. These will in turn be used to prompt in-depth interviews.",
-            "This large scale quantitative project would seek to examine the perceived social support received from family and friends by dual-career athletes using validated versions of the Perceived Social Support Scale. Sources of peer-support can be compared in terms of their effectiveness across a number of potential variables, including (but not exclusive to); level of sport participation (e.g., elite vs. sub-elite), academic or vocational load, career stage, living arrangements, or associated measures on related outcomes (i.e. wellbeing or student experience/satisfaction)."
-          ]
-        },
-        {
-          "title": "More Than Just a Job: Social Ties, Wellbeing, and Identity in Student Employment",
-          "description": "This project would seek to examine how students experience and navigate relationships with colleagues and supervisors while balancing occupational work and academic study demands, and how these interactions shape wellbeing, work–study balance, and developing personal and professional identity. Findings will provide insight into supportive and challenging social ties in student jobs and inform practices to enhance students’ workplace experiences and overall wellbeing.",
-          "ideas": [
-            "Explore how relationships with colleagues and supervisors in student jobs contribute to feelings of belonging, support, or stress, and how these social experiences relate to students’ wellbeing.",
-            "Examine how students balance academic identity and worker identity, including whether workplace expectations, flexibility, and social support help or hinder their work–study balance.",
-            "Investigate the types of social interactions in student employment that students perceive as most supportive or most challenging, and how these experiences shape confidence, motivation, and emerging professional identity."
-          ]
-        }
-      ]
-    },
-    {
       "id": "staff-16",
       "name": "Dr Tracy Laverick",
       "email": "t.laverick@leedstrinity.ac.uk",
@@ -548,32 +480,6 @@
             "Geographic location (is this a piece of UK-centric news, is this a more global story etc?)",
             "Aspects of aesthetic presentation (e.g., how professional did the stimulus of interest look?)",
             "Whether AI has covertly / overtly been used in the creation of the target stimuli."
-          ]
-        }
-      ]
-    },
-    {
-      "id": "staff-19",
-      "name": "Dr Christopher Lewis",
-      "email": "c.lewis@leedstrinity.ac.uk",
-      "avatar": "../../assets/staff/chrislewis.jpg",
-      "avatarPosition": "50% 50%",
-      "keywords": [
-        "Well-being",
-        "Happiness",
-        "Depression",
-        "Personality",
-        "Social Desirability"
-      ],
-      "topics": [
-        {
-          "title": "Well-being measurement: correlates and validity of the Depression–Happiness Scale",
-          "description": "There is a growing number of self-report measures of well-being currently available to researchers and practitioners. One such measure is the Depression–Happiness Scale (7-item and 25-item), designed to measure well-being in non-clinical samples on a single continuum from depression to happiness, rather than as separate concepts. The scale asks about the frequency of both positive and negative feelings over the past week (e.g., \"I felt sad\" vs. \"I felt happy\"). Negative items are reverse scored so that higher scores always indicate better well-being. This topic area proposes further research on the correlates of the Depression–Happiness Scale, including its relationship with personality, other measures of happiness, social desirability, and broader well-being constructs.",
-          "ideas": [
-            "How does the Depression–Happiness Scale relate to personality traits (e.g., HEXACO)?",
-            "How does the Depression–Happiness Scale relate to other measures of happiness (convergent validity)?",
-            "What is the relationship between Depression–Happiness Scale scores and social desirability (response bias)?",
-            "How does the Depression–Happiness Scale relate to other measures of well-being (e.g., life satisfaction, mental health, flourishing)?"
           ]
         }
       ]
