@@ -111,7 +111,7 @@ header h1 em {
   );
 }
 
-/* persistent ridge on the coin itself (always visible, even mid-toss) */
+/* persistent ridge on the coin itself (visible while it spins with no face shown) */
 .coin::after {
   content: '';
   position: absolute;
@@ -151,7 +151,7 @@ header h1 em {
   overflow: hidden;
 }
 
-/* shared metal look */
+/* shared metal look (sits behind the art; only shows if art has transparency) */
 .face::before {
   content: '';
   position: absolute;
@@ -172,13 +172,12 @@ header h1 em {
 
 .face-content {
   position: relative;
-  z-index: 2;
+  z-index: 4;            /* above the metallic ridge so the new coin art isn't double-ringed */
+  width: 100%;
+  height: 100%;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 4px;
-  padding: 18px;
 }
 
 .heads {
@@ -189,21 +188,15 @@ header h1 em {
   transform: rotateY(0deg);
 }
 
+/* new coin art fills the whole coin circle, edge to edge */
 .face-img {
-  width: 180px;
-  height: 180px;
-  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   border-radius: 50%;
-  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.45));
   pointer-events: none;
   user-select: none;
   -webkit-user-drag: none;
-}
-
-/* heads a touch larger */
-.heads .face-img {
-  width: 350px;
-  height: 350px;
 }
 
 /* Both faces hidden by default; reveal only the settled one */
