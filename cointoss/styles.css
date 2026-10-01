@@ -265,7 +265,7 @@ header h1 em {
 
 /* ── Stats ── */
 .stats {
-  margin-top: 2.6rem;
+  margin-top: 0;
   display: flex;
   gap: 2.5rem;
   font-size: 0.78rem;
@@ -289,6 +289,35 @@ header h1 em {
   background: var(--mid);
   opacity: 0.35;
 }
+
+/* ── Stats toggle (eye) ── */
+.stats-toggle {
+  background: none;
+  border: none;
+  color: var(--gold);
+  cursor: pointer;
+  padding: 0.4rem;
+  margin-top: 2.4rem;
+  margin-bottom: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s, transform 0.15s;
+  animation: fadeUp 1s 0.7s ease both;
+}
+.stats-toggle:hover {
+  color: var(--gold-lt);
+  transform: translateY(-1px);
+}
+
+/* swap the eye icon based on state */
+.stats-toggle .eye { display: none; }
+.stats-toggle .eye-open { display: block; }           /* stats visible */
+.stats-toggle.is-hidden .eye-open { display: none; }
+.stats-toggle.is-hidden .eye-closed { display: block; } /* stats hidden */
+
+/* hidden stats */
+.stats.hidden { display: none; }
 
 /* ── Keyframes ── */
 @keyframes fadeDown {
