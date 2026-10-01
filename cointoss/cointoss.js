@@ -87,3 +87,16 @@ function toss() {
 }
 
 btn.addEventListener('click', toss);
+
+// ──────────────────────────────────────────────
+//  Stats visibility toggle (eye)
+// ──────────────────────────────────────────────
+const statsToggle = document.getElementById('statsToggle');
+const statsEl     = document.getElementById('stats');
+
+statsToggle.addEventListener('click', () => {
+  const hidden = statsEl.classList.toggle('hidden');       // true when now hidden
+  statsToggle.classList.toggle('is-hidden', hidden);       // swap eye icon
+  statsToggle.setAttribute('aria-pressed', String(!hidden));
+  statsToggle.setAttribute('aria-label', hidden ? 'Show statistics' : 'Hide statistics');
+});
