@@ -1,0 +1,8 @@
+{
+  "_comment": "App-wide defaults. Change statsTool to \"JASP\" here when SPSS is retired. Students' own saved preferences override these.",
+  "statsTool": "SPSS",
+  "quantFormat": "csv",
+  "qualFormat": "docx",
+  "previewRowCap": 500,
+  "largeFileRowWarning": 50000
+}

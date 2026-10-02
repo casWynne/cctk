@@ -1,0 +1,4 @@
+{
+  "_comment": "SPSS reserved keywords. A column name matching one of these (ignoring case) is flagged and given a suggested alternative.",
+  "reserved": ["ALL", "AND", "BY", "EQ", "GE", "GT", "LE", "LT", "NE", "NOT", "OR", "TO", "WITH"]
+}

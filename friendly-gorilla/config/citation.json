@@ -1,0 +1,12 @@
+{
+  "_comment": "PLACEHOLDER citation details — confirm before release. Used by the Cite popup (APA7, in-text, BibTeX, .txt download).",
+  "authorFamily": "Wynne",
+  "authorGiven": "Caspar",
+  "authorInitials": "C.",
+  "year": "2026",
+  "title": "Friendly Gorilla: A browser-based cleaner for Gorilla data",
+  "version": "1.0",
+  "publisher": "Caspar's Cool Tool Kit (CCTK)",
+  "url": "https://caswynne.github.io/psychactivities2/friendly-gorilla/",
+  "bibtexKey": "wynne2026friendlygorilla"
+}

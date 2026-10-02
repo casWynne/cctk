@@ -1,0 +1,32 @@
+{
+  "_comment": "Columns removed by 'Default Group Remove'. Matching ignores case and surrounding spaces. Participant Private ID is never removed.",
+  "columns": [
+    "Event Index",
+    "UTC Timestamp",
+    "UTC Date and Time",
+    "Local Timestamp",
+    "Local Timezone",
+    "Local Date and Time",
+    "Experiment ID",
+    "Experiment Version",
+    "Tree Node Key",
+    "Repeat Key",
+    "Schedule ID",
+    "Participant Public ID",
+    "Participant Starting Group",
+    "Participant Status",
+    "Participant Completion Code",
+    "Participant External Session ID",
+    "Participant Device Type",
+    "Participant Device",
+    "Participant OS",
+    "Participant Browser",
+    "Participant Monitor Size",
+    "Participant Viewport Size",
+    "Checkpoint",
+    "Room ID",
+    "Room Order",
+    "Task Name",
+    "Task Version"
+  ]
+}

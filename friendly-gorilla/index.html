@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Friendly Gorilla — CCTK</title>
+  <meta name="description" content="Clean Gorilla data exports in your browser: remove clutter, tidy columns, build scores and export for JASP, SPSS or Word." />
+  <link rel="stylesheet" href="../shared/cctk.css" />
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="../shared/cctk-nav.js"></script>
+  <script defer src="vendor/papaparse.min.js"></script>
+  <script defer src="vendor/xlsx.full.min.js"></script>
+  <script defer src="vendor/docx.umd.min.js"></script>
+  <script defer src="app.js"></script>
+</head>
+
+<body data-accent="green">
+  <nav class="cctk-nav" aria-label="CCTK navigation">
+    <a class="cctk-nav__logo" href="../index.html">CCTK</a>
+    <span class="cctk-nav__sep" aria-hidden="true">›</span>
+    <span class="cctk-nav__current">Friendly Gorilla</span>
+    <span class="fg-beta" title="This tool is in beta — please send feedback">BETA</span>
+    <span style="margin-left:auto;"></span>
+    <button class="cctk-iconbtn fg-navbtn" type="button" data-cctk-theme-toggle title="Toggle light/dark" data-icon="moon"></button>
+  </nav>
+
+  <div class="fg-app">
+
+    <!-- Import panel (shown once a file is loaded) -->
+    <section class="fg-import" id="importPanel" hidden aria-label="Loaded file">
+      <div class="fg-import__file">
+        <span class="fg-ico" data-icon="file"></span>
+        <button type="button" class="fg-filename" id="fileNameBtn" title="Click to rename — this sets the export file name"></button>
+        <input type="text" class="fg-filename-input" id="fileNameInput" hidden aria-label="File name" />
+      </div>
+      <dl class="fg-stats">
+        <div><dt>Participants</dt><dd id="statParticipants">—</dd></div>
+        <div><dt>Data type</dt><dd id="statType">—</dd></div>
+        <div><dt>Rows</dt><dd id="statRows">—</dd></div>
+        <div><dt>Columns</dt><dd id="statCols">—</dd></div>
+      </dl>
+      <p class="fg-privacy-inline"><span class="fg-ico" data-icon="shield"></span> Processed in your browser only — nothing is uploaded or saved.</p>
+      <div class="fg-warnings" id="warnings"></div>
+    </section>
+
+    <!-- Ribbon -->
+    <div class="fg-ribbon" role="toolbar" aria-label="Actions">
+      <div class="fg-ribbon__group">
+        <button type="button" class="fg-rbtn" id="btnOpen" data-icon="upload"><span>Open</span></button>
+        <button type="button" class="fg-rbtn" id="btnUndo" data-icon="undo" data-needs-data disabled><span>Undo</span></button>
+        <button type="button" class="fg-rbtn" id="btnReset" data-icon="reset" data-needs-data disabled><span>Reset</span></button>
+        <div class="fg-ribbon__label">File</div>
+      </div>
+      <div class="fg-ribbon__group">
+        <button type="button" class="fg-rbtn" data-tool="removeCols" data-icon="columns" data-needs-data disabled><span>Remove Columns</span></button>
+        <button type="button" class="fg-rbtn" data-tool="removeRows" data-icon="rows" data-needs-data disabled><span>Remove Rows</span></button>
+        <button type="button" class="fg-rbtn" data-tool="rename" data-icon="rename" data-needs-data disabled><span>Rename</span></button>
+        <button type="button" class="fg-rbtn" data-tool="rating" data-icon="sliders" data-needs-data disabled><span>Rating Scales</span></button>
+        <div class="fg-ribbon__label">Clean</div>
+      </div>
+      <div class="fg-ribbon__group">
+        <button type="button" class="fg-rbtn" data-tool="score" data-icon="sigma" data-needs-data disabled><span>Create Score</span></button>
+        <div class="fg-ribbon__label">Build</div>
+      </div>
+      <div class="fg-ribbon__group">
+        <button type="button" class="fg-rbtn fg-rbtn--primary" data-tool="export" data-icon="download" data-needs-data disabled><span>Export</span></button>
+        <button type="button" class="fg-rbtn" data-tool="log" data-icon="list" data-needs-data disabled><span>Change Log <b class="fg-count" id="logCount" hidden></b></span></button>
+        <div class="fg-ribbon__label">Output</div>
+      </div>
+      <div class="fg-ribbon__group">
+        <button type="button" class="fg-rbtn" data-tool="settings" data-icon="settings"><span>Settings</span></button>
+        <div class="fg-ribbon__label">App</div>
+      </div>
+      <input type="file" id="fileInput" accept=".csv,.tsv,.txt,.xlsx,.xls" hidden />
+    </div>
+
+    <!-- Workspace: data view + contextual sidebar -->
+    <div class="fg-workspace" id="workspace">
+      <main class="fg-dataview" id="dataView" aria-label="Data preview">
+        <div class="fg-empty" id="emptyState">
+          <div class="fg-drop" id="dropZone" tabindex="0" role="button" aria-label="Open a Gorilla data file">
+            <span class="fg-drop__icon" data-icon="upload"></span>
+            <h1>Open a Gorilla data file</h1>
+            <p>Drag a CSV or Excel export here, or click to choose one.</p>
+            <p class="cctk-muted cctk-small">V1 is built for questionnaire data with one row per participant.</p>
+          </div>
+          <p class="fg-privacy-block"><span class="fg-ico" data-icon="shield"></span>
+            <span><strong>Your data stays on this computer.</strong> Everything happens inside your browser: the file is never
+            uploaded and never saved. Only your preferences (such as SPSS or JASP) are remembered. You remain the data
+            controller for your participants' data.</span></p>
+        </div>
+        <div class="fg-tablewrap" id="tableWrap" hidden>
+          <div class="fg-previewnote" id="previewNote" hidden></div>
+          <div class="fg-tablescroll" id="tableScroll"></div>
+        </div>
+      </main>
+
+      <aside class="fg-sidebar" id="sidebar" hidden aria-live="polite">
+        <div class="fg-sidebar__head">
+          <h2 id="sidebarTitle"></h2>
+          <button type="button" class="fg-x" id="sidebarClose" aria-label="Close panel" data-icon="x"></button>
+        </div>
+        <div class="fg-sidebar__body" id="sidebarBody"></div>
+      </aside>
+    </div>
+
+    <footer class="cctk-footer fg-footer">
+      <span>Created by Caspar Wynne</span>
+      &nbsp;·&nbsp;
+      <button type="button" class="fg-linkbtn" id="btnHelp">Help</button>
+      &nbsp;·&nbsp;
+      <button type="button" class="fg-linkbtn" id="btnCite">Cite</button>
+      <p class="fg-footer__privacy"><span class="fg-ico" data-icon="shield"></span>
+        Privacy: all processing happens in your browser. Friendly Gorilla never uploads and never saves participant data —
+        only your preferences are stored on this device.</p>
+    </footer>
+  </div>
+
+  <!-- Modal -->
+  <div class="fg-modal" id="modal" hidden>
+    <div class="fg-modal__backdrop" data-close></div>
+    <div class="fg-modal__card cctk-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="fg-sidebar__head">
+        <h2 id="modalTitle"></h2>
+        <button type="button" class="fg-x" data-close aria-label="Close" data-icon="x"></button>
+      </div>
+      <div class="fg-modal__body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <div class="fg-toasts" id="toasts" aria-live="polite"></div>
+</body>
+</html>
