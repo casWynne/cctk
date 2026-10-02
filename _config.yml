@@ -1,0 +1,15 @@
+# GitHub Pages (Jekyll) build config.
+# Keep plaintext tool sources OUT of the published site. The "_src" folders
+# are already skipped by Jekyll's underscore rule; this is explicit backup.
+# NOTE: do NOT add a .nojekyll file — that turns Jekyll off and would start
+# publishing the _src folders (exposing the unencrypted engine).
+exclude:
+  - "_src"
+  - "casBadge3d/_src"
+  - "**/_src"
+  - .sass-cache
+  - .jekyll-cache
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
