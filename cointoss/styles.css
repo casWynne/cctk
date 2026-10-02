@@ -111,7 +111,7 @@ header h1 em {
   );
 }
 
-/* persistent ridge on the coin itself (always visible, even mid-toss) */
+/* persistent ridge on the coin itself (visible while it spins with no face shown) */
 .coin::after {
   content: '';
   position: absolute;
@@ -151,7 +151,7 @@ header h1 em {
   overflow: hidden;
 }
 
-/* shared metal look */
+/* shared metal look (sits behind the art; only shows if art has transparency) */
 .face::before {
   content: '';
   position: absolute;
@@ -172,13 +172,12 @@ header h1 em {
 
 .face-content {
   position: relative;
-  z-index: 2;
+  z-index: 4;            /* above the metallic ridge so the new coin art isn't double-ringed */
+  width: 100%;
+  height: 100%;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 4px;
-  padding: 18px;
 }
 
 .heads {
@@ -189,21 +188,15 @@ header h1 em {
   transform: rotateY(0deg);
 }
 
+/* new coin art fills the whole coin circle, edge to edge */
 .face-img {
-  width: 180px;
-  height: 180px;
-  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   border-radius: 50%;
-  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.45));
   pointer-events: none;
   user-select: none;
   -webkit-user-drag: none;
-}
-
-/* heads a touch larger */
-.heads .face-img {
-  width: 350px;
-  height: 350px;
 }
 
 /* Both faces hidden by default; reveal only the settled one */
@@ -272,7 +265,7 @@ header h1 em {
 
 /* ── Stats ── */
 .stats {
-  margin-top: 2.6rem;
+  margin-top: 0;
   display: flex;
   gap: 2.5rem;
   font-size: 0.78rem;
@@ -296,6 +289,35 @@ header h1 em {
   background: var(--mid);
   opacity: 0.35;
 }
+
+/* ── Stats toggle (eye) ── */
+.stats-toggle {
+  background: none;
+  border: none;
+  color: var(--gold);
+  cursor: pointer;
+  padding: 0.4rem;
+  margin-top: 2.4rem;
+  margin-bottom: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s, transform 0.15s;
+  animation: fadeUp 1s 0.7s ease both;
+}
+.stats-toggle:hover {
+  color: var(--gold-lt);
+  transform: translateY(-1px);
+}
+
+/* swap the eye icon based on state */
+.stats-toggle .eye { display: none; }
+.stats-toggle .eye-open { display: block; }           /* stats visible */
+.stats-toggle.is-hidden .eye-open { display: none; }
+.stats-toggle.is-hidden .eye-closed { display: block; } /* stats hidden */
+
+/* hidden stats */
+.stats.hidden { display: none; }
 
 /* ── Keyframes ── */
 @keyframes fadeDown {
